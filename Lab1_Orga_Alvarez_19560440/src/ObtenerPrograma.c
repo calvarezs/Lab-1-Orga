@@ -158,11 +158,11 @@ void ObtenerPrograma(Programa* programa, char* nombreArchivo, int* ErrorFound)
                 }
             } 
         }
-        /*DEBUG*/printf("|%s|:|%s|%s|%s|%s|\n",Etiqueta, Procedimiento, Registro1, Registro2, Registro3);
+        //*DEBUG*/printf("|%s|:|%s|%s|%s|%s|\n",Etiqueta, Procedimiento, Registro1, Registro2, Registro3);
         Instruccion* instruccion = CrearInstruccion(Etiqueta, Procedimiento, Registro1, Registro2, Registro3);
-        /*DEBUG*/printf("|%s|",instruccion->Etiqueta);
-        /*DEBUG*/printf("->|%s|:",instruccion->EtiquetaObjetivo);
-        /*DEBUG*/printf("|%d|%d|%d|%d|\n\n", instruccion->Procedimiento, instruccion->Registro1, instruccion->Registro2, instruccion->Registro3);
+        //*DEBUG*/printf("|%s|",instruccion->Etiqueta);
+        //*DEBUG*/printf("->|%s|:",instruccion->EtiquetaObjetivo);
+        //*DEBUG*/printf("|%d|%d|%d|%d|\n\n", instruccion->Procedimiento, instruccion->Registro1, instruccion->Registro2, instruccion->Registro3);
         InsertarEnPrograma(programa, instruccion);
         free(Etiqueta);
         free(Procedimiento);

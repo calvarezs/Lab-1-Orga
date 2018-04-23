@@ -90,19 +90,19 @@ Instruccion* ObtenerEnPrograma(Programa* programa, char* etiquetaObjetivo)
 	Instruccion* InstruccionActual; 
 	InstruccionActual = programa->Cabeza; 
 	
-	/*DEBUG*/printf("En busqueda: %s\n", etiquetaObjetivo);
+	//*DEBUG*/printf("En busqueda: %s\n", etiquetaObjetivo);
 
 	while(InstruccionActual != NULL)
 	{
-		/*DEBUG*/printf("|%s|",InstruccionActual->Etiqueta);
-        /*DEBUG*/printf("->|%s|:",InstruccionActual->EtiquetaObjetivo);
-        /*DEBUG*/printf("|%d|%d|%d|%d|\n\n", InstruccionActual->Procedimiento, InstruccionActual->Registro1, InstruccionActual->Registro2, InstruccionActual->Registro3);
+		//*DEBUG*/printf("|%s|",InstruccionActual->Etiqueta);
+        //*DEBUG*/printf("->|%s|:",InstruccionActual->EtiquetaObjetivo);
+        //*DEBUG*/printf("|%d|%d|%d|%d|\n\n", InstruccionActual->Procedimiento, InstruccionActual->Registro1, InstruccionActual->Registro2, InstruccionActual->Registro3);
         
-		/*DEBUG*/printf("strcmp (%s, %s) = %d\n", etiquetaObjetivo, InstruccionActual->Etiqueta, strcmp(etiquetaObjetivo, InstruccionActual->Etiqueta));
+		//*DEBUG*/printf("strcmp (%s, %s) = %d\n", etiquetaObjetivo, InstruccionActual->Etiqueta, strcmp(etiquetaObjetivo, InstruccionActual->Etiqueta));
 		if(strcmp(etiquetaObjetivo, InstruccionActual->Etiqueta) == 0 ||
 			strcmp(etiquetaObjetivo, InstruccionActual->Etiqueta) == 13)
 		{
-			/*DEBUG*/printf("%s\n", InstruccionActual->Etiqueta);
+			//*DEBUG*/printf("%s\n", InstruccionActual->Etiqueta);
 			return InstruccionActual;
 		}
 		InstruccionActual = InstruccionActual->Siguiente;

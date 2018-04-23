@@ -28,8 +28,8 @@ Instruccion* lw(Registro* registro, Stack* stack, LineasControl* lineasControl, 
     int valorACargar;
     int registro2 = ObtenerDatoRegistro(registro, instruccion->Registro2) / 4;
     int registro3 = ObtenerDatoRegistro(registro, instruccion->Registro3);
-    /*DEBUG*/ printf("En el registro %d hay %d\n",instruccion->Registro2, registro2);
-    /*DEBUG*/ printf("En el registro %d hay %d\n",instruccion->Registro3, registro3);
+    //*DEBUG*/ printf("En el registro %d hay %d\n",instruccion->Registro2, registro2);
+    //*DEBUG*/ printf("En el registro %d hay %d\n",instruccion->Registro3, registro3);
 
     if(ConsultarLineasControl(lineasControl, MEMREAD)!=0 &&
         ConsultarLineasControl(lineasControl, REGWRITE)!=0)
@@ -44,9 +44,9 @@ Instruccion* sw(Registro* registro, Stack* stack, LineasControl* lineasControl, 
     int registro1 = ObtenerDatoRegistro(registro, instruccion->Registro1);
     int registro2 = ObtenerDatoRegistro(registro, instruccion->Registro2) / 4;
     int registro3 = ObtenerDatoRegistro(registro, instruccion->Registro3);
-    /*DEBUG*/ printf("En el registro %d hay %d\n",instruccion->Registro1, registro1); 
-    /*DEBUG*/ printf("En el registro %d hay %d\n",instruccion->Registro2, registro2);
-    /*DEBUG*/ printf("En el registro %d hay %d\n",instruccion->Registro3, registro3);
+    //*DEBUG*/ printf("En el registro %d hay %d\n",instruccion->Registro1, registro1); 
+    //*DEBUG*/ printf("En el registro %d hay %d\n",instruccion->Registro2, registro2);
+    //*DEBUG*/ printf("En el registro %d hay %d\n",instruccion->Registro3, registro3);
 
 
     if(ConsultarLineasControl(lineasControl, MEMWRITE)!=0)
@@ -140,9 +140,9 @@ Instruccion* beq(Programa* programa, Registro* registro, LineasControl* lineasCo
             instruccionASaltar = ObtenerEnPrograma(programa, instruccion->EtiquetaObjetivo);
             if(instruccionASaltar != NULL)
             {
-                /*DEBUG*/printf("beq salta a: |%s|",instruccionASaltar->Etiqueta);
-                /*DEBUG*/printf("->|%s|:",instruccionASaltar->EtiquetaObjetivo);
-                /*DEBUG*/printf("|%d|%d|%d|%d|\n\n", instruccionASaltar->Procedimiento, instruccionASaltar->Registro1, instruccionASaltar->Registro2, instruccionASaltar->Registro3);
+                //*DEBUG*/printf("beq salta a: |%s|",instruccionASaltar->Etiqueta);
+                //*DEBUG*/printf("->|%s|:",instruccionASaltar->EtiquetaObjetivo);
+                //*DEBUG*/printf("|%d|%d|%d|%d|\n\n", instruccionASaltar->Procedimiento, instruccionASaltar->Registro1, instruccionASaltar->Registro2, instruccionASaltar->Registro3);
         
                 return instruccionASaltar;
             }
@@ -160,9 +160,9 @@ Instruccion* jump(Programa* programa, Registro* registro, LineasControl* lineasC
         
         if(instruccionASaltar != NULL)
         {
-            /*DEBUG*/printf("jump salta a: |%s|",instruccionASaltar->Etiqueta);
-            /*DEBUG*/printf("->|%s|:",instruccionASaltar->EtiquetaObjetivo);
-            /*DEBUG*/printf("|%d|%d|%d|%d|\n\n", instruccionASaltar->Procedimiento, instruccionASaltar->Registro1, instruccionASaltar->Registro2, instruccionASaltar->Registro3);
+            //*DEBUG*/printf("jump salta a: |%s|",instruccionASaltar->Etiqueta);
+            //*DEBUG*/printf("->|%s|:",instruccionASaltar->EtiquetaObjetivo);
+            //*DEBUG*/printf("|%d|%d|%d|%d|\n\n", instruccionASaltar->Procedimiento, instruccionASaltar->Registro1, instruccionASaltar->Registro2, instruccionASaltar->Registro3);
         
             return instruccionASaltar;
         }
@@ -246,7 +246,7 @@ Instruccion*  EjecutarProcedimiento(
                             Instruccion* instruccionActual,
                             int numeroCiclo)
 {
-    /*DEBUG*/ printf("Inicio Funcion de Eleccion de procedimiento\n");
+    //*DEBUG*/ printf("Inicio Funcion de Eleccion de procedimiento\n");
     //*DEBUG*/ printf("Imprimir Proc\n");
     ImprimirInstruccion(archivoEjecucion, registro, instruccionActual);
     //*DEBUG*/ printf("Imprimir traza\n");
@@ -279,7 +279,7 @@ Instruccion*  EjecutarProcedimiento(
         case MFLO:
             return mflo(registro, lineasControl, instruccionActual); 
     }
-    /*DEBUG*/ printf("Fin Funcion de Eleccion de procedimiento\n");
+    //*DEBUG*/ printf("Fin Funcion de Eleccion de procedimiento\n");
     return instruccionActual->Siguiente;
 }
 

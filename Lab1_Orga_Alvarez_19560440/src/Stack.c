@@ -14,7 +14,7 @@ int ObtenerDeStack(Stack* stack, int pos)
 {
 	int desfaseStack =  TAMANIO_STACK/2;
 	pos = desfaseStack + pos;
-	/*DEBUG*/ printf("posicion a leer: %d\n", pos);
+	//*DEBUG*/ printf("posicion a leer: %d\n", pos);
 	if(pos >= TAMANIO_STACK || pos < 0)
 	{
 		printf("Valor fuera de stack\n");
@@ -28,7 +28,7 @@ void ModificarStack(Stack* stack, int pos, int dato)
 {
 	int desfaseStack =  TAMANIO_STACK/2;
 	pos = desfaseStack + pos;
-	/*DEBUG*/ printf("posicion a cambiar: %d\n", pos);
+	//*DEBUG*/ printf("posicion a cambiar: %d\n", pos);
 	if(pos >= TAMANIO_STACK || pos < 0)
 	{
 		printf("Valor fuera de stack\n");

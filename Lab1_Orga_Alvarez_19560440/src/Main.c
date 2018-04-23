@@ -41,8 +41,7 @@ int main()
 	ObtenerPrograma(ProgramaMIPS, archivoInstrucciones, ErrorFound);
 	Instruccion* actual = ProgramaMIPS->Cabeza;
 	while(actual!=NULL)
-	{
-		printf("oli\n");
+	{ 
 		actual=actual->Siguiente;
 	}
 

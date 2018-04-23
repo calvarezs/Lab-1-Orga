@@ -5,7 +5,7 @@
 //Procdeimiento que imprime una instruccion en un archivo
 void ImprimirComponentesInstruccion(FILE* archivoEjecucion, Registro* registro, Instruccion* instruccion)
 {
-    /*DEBUG*/printf("Iniciando impresion de instruccion :%d \n", instruccion->Procedimiento); 
+    //*DEBUG*/printf("Iniciando impresion de instruccion :%d \n", instruccion->Procedimiento); 
 	switch(instruccion->Procedimiento)
     {
         case ADDI:
@@ -27,7 +27,7 @@ void ImprimirComponentesInstruccion(FILE* archivoEjecucion, Registro* registro, 
             ImprimirRegistroInstruccion(archivoEjecucion, instruccion->Registro1);
             fprintf(archivoEjecucion, ", ");
             ImprimirRegistroInstruccion(archivoEjecucion, instruccion->Registro2);
-            fprintf(archivoEjecucion, ", %s", instruccion->EtiquetaObjetivo);  
+            fprintf(archivoEjecucion, ", %s", strtok(instruccion->EtiquetaObjetivo,"\n"));  
             break;
         case JUMPTO:
             fprintf(archivoEjecucion, "jump %s", instruccion->EtiquetaObjetivo);  
@@ -85,7 +85,7 @@ void ImprimirComponentesInstruccion(FILE* archivoEjecucion, Registro* registro, 
         default:
             return;
     }
-    /*DEBUG*/printf("Terminando impresion instruccion\n");
+    //*DEBUG*/printf("Terminando impresion instruccion\n");
     return;
 }
 
@@ -115,11 +115,11 @@ void ImprimirCicloTraza(FILE* archivoTraza, Registro* registro, Instruccion* ins
     {
         return;
     }
-    /*DEBUG*/printf("Iniciando impresion de ciclo traza\n"); 
+    //*DEBUG*/printf("Iniciando impresion de ciclo traza\n"); 
     fprintf(archivoTraza,"N ciclo: %d  Instruccion: ", numeroCiclo);
 	ImprimirComponentesInstruccion(archivoTraza, registro, instruccion);
 	fprintf(archivoTraza,"\n"); 
-    /*DEBUG*/printf("Impresion de ciclo traza terminado\n");
+    //*DEBUG*/printf("Impresion de ciclo traza terminado\n");
     return;
 }
 
