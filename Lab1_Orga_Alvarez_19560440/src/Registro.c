@@ -5,6 +5,10 @@ Registro* IniciarRegistro()
 {
     Registro* registro = (Registro*)malloc(sizeof(Registro));
     registro->Datos = (int*)calloc(34,sizeof(int));
+    registro->Datos[28] = TAMANIO_STACK/2;
+    registro->Datos[29] = (TAMANIO_STACK/2)+1;
+    registro->Datos[30] = 500;
+    registro->Datos[31] = 101;
     registro->Nombres = (char**)malloc(34*sizeof(char*));
     int i;
     for(i=1;i<32;i++)
@@ -55,7 +59,10 @@ Registro* IniciarRegistro()
 //Funcion modificar
 void ModificarRegistro(Registro* registro, int nRegistro, int dato)
 {
-    registro->Datos[nRegistro] = dato;
+    if(nRegistro != 0)
+    {
+        registro->Datos[nRegistro] = dato;
+    }
     return;
 }
 

@@ -23,12 +23,8 @@ void EjecutarProgramaMIPS(  char* archivoSalidaTraza,
     Instruccion* instruccionActual = programa->Cabeza; 
     while(instruccionActual != NULL)
     {  
-        if(instruccionActual->Procedimiento > -1)
-        {  
-            numeroCiclo++;
-        }
-        else
-        { 
+        if(instruccionActual->Procedimiento <= -1)
+        {
             instruccionActual = instruccionActual->Siguiente;
             if (instruccionActual == NULL)
             {
@@ -36,9 +32,8 @@ void EjecutarProgramaMIPS(  char* archivoSalidaTraza,
                 fclose(archivoTraza);
                 //*DEBUG*/ printf("Fin ejecucion programa MIPS\n");
                 return;            
-            } 
-        }
-
+            }    
+        }       
         //*DEBUG*/printf("Pos actual: |%s|",instruccionActual->Etiqueta);
         //*DEBUG*/printf("->|%s|:",instruccionActual->EtiquetaObjetivo);
         //*DEBUG*/printf("|%d|%d|%d|%d|\n\n", instruccionActual->Procedimiento, instruccionActual->Registro1, instruccionActual->Registro2, instruccionActual->Registro3);
@@ -46,6 +41,7 @@ void EjecutarProgramaMIPS(  char* archivoSalidaTraza,
         //*DEBUG*/ printf("Ejecutar procedimiento\n"); 
         procActual = instruccionActual->Procedimiento;
 
+        numeroCiclo++;
         instruccionActual = EjecutarProcedimiento(archivoEjecucion, archivoTraza, registro, stack, lineasControl, programa, instruccionActual, numeroCiclo);
         if(procActual>-1){
             ImprimirRegistroEnArchivo(archivoTraza, registro);
