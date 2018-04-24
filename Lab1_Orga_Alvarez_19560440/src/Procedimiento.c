@@ -102,7 +102,7 @@ Instruccion* divi(Registro* registro, LineasControl* lineasControl, Instruccion*
             return instruccion->Siguiente;
         }
         ModificarRegistroHigh(registro, registro1/registro2);
-        ModificarRegistroLow(registro, registro1/registro2);
+        ModificarRegistroLow(registro, registro1%registro2);
     }
     return instruccion->Siguiente;
 }
